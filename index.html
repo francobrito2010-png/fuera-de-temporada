@@ -606,29 +606,36 @@
     }
     function stopAmbient(){ if(ac){ try{ master.gain.linearRampToValueAtTime(0, ac.currentTime+0.6);}catch(e){} } ambientOn=false; }
 
+    function hideHint(){ try{ hint.style.opacity="0"; setTimeout(function(){ hint.style.display="none"; },600); }catch(e){} }
+
+    // play() devuelve una promesa: solo damos por "sonando" cuando de verdad arranca
     function play(){
-      if(bgm.src){ bgm.volume = 0.09; bgm.play().catch(function(){}); }
-      else { startAmbient(); }
       setBtn(true);
+      if(bgm.src){
+        bgm.volume = 0.09;
+        var p = bgm.play();
+        return (p && p.then) ? p : Promise.resolve();
+      }
+      startAmbient();
+      return Promise.resolve();
     }
     function stop(){
       if(bgm.src){ bgm.pause(); } else { stopAmbient(); }
       setBtn(false);
     }
 
-    // primer gesto del usuario -> arranca la música
-    function firstGesture(){
-      if(started) return; started=true;
-      hint.style.opacity="0"; setTimeout(function(){hint.style.display="none";},600);
-      if(wantOn) play();
-      window.removeEventListener("pointerdown", firstGesture);
-      window.removeEventListener("keydown", firstGesture);
+    var GESTS = ["pointerdown","touchend","click","keydown"];
+    function cleanupGestures(){ GESTS.forEach(function(ev){ window.removeEventListener(ev, tryStart); }); }
+    // En cada gesto intenta arrancar; si el navegador aún lo bloquea, se reintenta en el próximo toque
+    function tryStart(){
+      if(started || !wantOn){ cleanupGestures(); return; }
+      play().then(function(){ started=true; hideHint(); cleanupGestures(); })
+            .catch(function(){ /* bloqueado todavía: esperamos el siguiente toque */ });
     }
     if(wantOn){
-      window.addEventListener("pointerdown", firstGesture);
-      window.addEventListener("keydown", firstGesture);
-      // intento de autoplay (por si el navegador lo permite)
-      if(bgm.src){ bgm.volume=0.09; bgm.play().then(function(){ started=true; hint.style.display="none"; setBtn(true);}).catch(function(){}); }
+      GESTS.forEach(function(ev){ window.addEventListener(ev, tryStart, {passive:true}); });
+      // intento inmediato por si el navegador ya lo permite
+      play().then(function(){ started=true; hideHint(); cleanupGestures(); }).catch(function(){});
     }
 
     // La música SOLO suena mientras la app está a la vista: se pausa al minimizar, cambiar de app o bloquear el teléfono
