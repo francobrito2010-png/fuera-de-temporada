@@ -36,20 +36,31 @@
   .stage{
     min-height:100%;
     display:flex;justify-content:center;
-    background:linear-gradient(160deg,#2E1C12,#241610);
+    background:radial-gradient(120% 90% at 50% -10%,#7A2A16,#2E1C12 55%,#241610);
   }
 
-  /* Cáscara tipo app */
+  /* Cáscara tipo teléfono */
   .app{
     width:100%;max-width:468px;background:var(--shell);
     min-height:100%;position:relative;overflow:hidden;
     box-shadow:0 0 60px rgba(58,34,22,.16);
-    padding-bottom:104px;                 /* espacio para la barra inferior */
+    padding-bottom:104px;                 /* espacio para la barra inferior (móvil) */
   }
-  @media(min-width:520px){
-    .stage{padding-block:22px}
-    .app{border-radius:34px;min-height:auto;margin-block:22px;
-         border:1px solid rgba(255,255,255,.5)}
+  .scroll{position:relative;z-index:1}
+
+  /* En pantallas grandes se ve como un TELÉFONO (con marco) y hace scroll por dentro */
+  @media(min-width:760px){
+    .stage{height:100%;align-items:center;padding-block:24px}
+    .app{width:404px;height:min(884px,94vh);min-height:0;padding-bottom:0;
+         border-radius:50px;border:12px solid #141414;
+         box-shadow:0 34px 90px rgba(0,0,0,.5), 0 0 0 2px #000;}
+    .scroll{position:absolute;inset:0;overflow-y:auto;overflow-x:hidden;
+            padding-bottom:90px;-webkit-overflow-scrolling:touch}
+    header.top{top:0}
+    nav.tabbar{position:absolute;left:0;right:0;bottom:0;width:auto;max-width:none;transform:none;padding:9px 12px 11px}
+    .music{position:absolute;bottom:102px;right:14px;left:auto;transform:none}
+    .hint{position:absolute;bottom:152px}
+    .toast{position:absolute;bottom:152px}
   }
 
   /* Header */
@@ -311,6 +322,7 @@
       </svg>
     </div>
 
+    <div class="scroll">
     <header class="top">
       <div class="brand">
         <b>Fuera de Temporada</b>
@@ -525,6 +537,7 @@
 
       <p class="foot-note">Fuera de Temporada · Hallacas caseras venezolanas 🇻🇪<br>Pedidos por WhatsApp · <span class="st58 st58-xs inject58"></span> 424 920 1137</p>
     </div><!-- /wrap -->
+    </div><!-- /scroll -->
 
     <!-- Barra inferior -->
     <nav class="tabbar">
