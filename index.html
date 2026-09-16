@@ -607,7 +607,7 @@
     function stopAmbient(){ if(ac){ try{ master.gain.linearRampToValueAtTime(0, ac.currentTime+0.6);}catch(e){} } ambientOn=false; }
 
     function play(){
-      if(bgm.src){ bgm.volume = 0.18; bgm.play().catch(function(){}); }
+      if(bgm.src){ bgm.volume = 0.09; bgm.play().catch(function(){}); }
       else { startAmbient(); }
       setBtn(true);
     }
@@ -628,7 +628,7 @@
       window.addEventListener("pointerdown", firstGesture);
       window.addEventListener("keydown", firstGesture);
       // intento de autoplay (por si el navegador lo permite)
-      if(bgm.src){ bgm.volume=0.18; bgm.play().then(function(){ started=true; hint.style.display="none"; setBtn(true);}).catch(function(){}); }
+      if(bgm.src){ bgm.volume=0.09; bgm.play().then(function(){ started=true; hint.style.display="none"; setBtn(true);}).catch(function(){}); }
     }
 
     // La música SOLO suena mientras la app está a la vista: se pausa al minimizar, cambiar de app o bloquear el teléfono
