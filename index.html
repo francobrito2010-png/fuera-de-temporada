@@ -52,7 +52,7 @@
   header.top{
     position:sticky;top:env(safe-area-inset-top,0px);z-index:20;
     background:linear-gradient(var(--shell) 78%, rgba(251,244,233,0));
-    padding:18px 18px 10px;display:flex;align-items:center;justify-content:center;gap:12px;
+    padding:12px 14px 8px;display:flex;align-items:center;justify-content:center;gap:12px;
   }
   .brand{display:flex;flex-direction:column;align-items:center;text-align:center;line-height:1}
   .brand b{font-family:'Bricolage Grotesque',system-ui,sans-serif;font-weight:800;font-size:24px;color:var(--brick);letter-spacing:-.4px;line-height:.98}
@@ -64,7 +64,7 @@
   }
   .iconbtn svg{width:22px;height:22px}
 
-  .wrap{padding:0 18px;position:relative;z-index:1}
+  .wrap{padding:0 12px;position:relative;z-index:1}
 
   /* Fondo tricolor venezolano (detrás de todo el contenido) */
   .flag-bg{position:absolute;inset:0;z-index:0;overflow:hidden;pointer-events:none}
@@ -93,10 +93,10 @@
     repeating-linear-gradient(115deg,rgba(255,255,255,.05) 0 2px,transparent 2px 22px);opacity:.5;pointer-events:none}
   .hero .kick{font-size:11.5px;letter-spacing:.22em;text-transform:uppercase;color:#F7C88E;font-weight:600}
   .hero h1{
-    font-family:'Bricolage Grotesque',system-ui,sans-serif;font-weight:800;font-size:40px;line-height:.95;
-    margin:10px 0 0;text-wrap:balance;letter-spacing:-1.2px;
+    font-family:'Bricolage Grotesque',system-ui,sans-serif;font-weight:800;font-size:46px;line-height:.95;
+    margin:10px 0 0;text-wrap:balance;letter-spacing:-1.4px;
   }
-  .hero p{margin:12px 0 0;max-width:30ch;font-size:14.5px;color:#FBE4CC;line-height:1.5}
+  .hero p{margin:12px 0 0;max-width:32ch;font-size:15.5px;color:#FBE4CC;line-height:1.5}
   .hero .row{display:flex;align-items:center;gap:12px;margin-top:18px;flex-wrap:wrap}
   .price-pill{
     background:var(--gold);color:#3A2216;font-weight:700;border-radius:999px;
@@ -124,18 +124,18 @@
   .chip.active span{color:var(--brick)}
 
   /* Sección */
-  .sec-head{display:flex;align-items:baseline;justify-content:space-between;margin:22px 0 12px}
+  .sec-head{display:flex;align-items:baseline;justify-content:space-between;margin:16px 0 10px}
   .sec-head h2{font-family:'Bricolage Grotesque',system-ui,sans-serif;font-size:22px;font-weight:800;letter-spacing:-.5px;margin:0}
   .sec-head a{color:var(--brick);font-weight:600;font-size:13px;text-decoration:none}
 
   /* Tarjetas de producto */
-  .menu{display:flex;flex-direction:column;gap:14px}
+  .menu{display:flex;flex-direction:column;gap:12px}
   .item{
     display:flex;gap:14px;background:var(--card);border:1px solid var(--line);border-radius:20px;
-    padding:12px;box-shadow:var(--shadow-sm);position:relative;
+    padding:14px;box-shadow:var(--shadow-sm);position:relative;
   }
   .thumb{
-    width:96px;height:96px;flex:none;border-radius:15px;overflow:hidden;position:relative;
+    width:112px;height:112px;flex:none;border-radius:16px;overflow:hidden;position:relative;
     background:radial-gradient(120% 120% at 30% 20%,#F3D08A,#E3A11B);
     display:grid;place-items:center;
   }
@@ -145,10 +145,10 @@
   .tag{position:absolute;top:8px;left:8px;background:var(--brick);color:#fff;font-size:10.5px;font-weight:700;
     padding:4px 8px;border-radius:8px;letter-spacing:.03em;box-shadow:var(--shadow-sm)}
   .item .body{flex:1;min-width:0;display:flex;flex-direction:column}
-  .item h3{margin:2px 0 0;font-size:16px;font-weight:700}
-  .item .desc{margin:5px 0 0;font-size:12.5px;color:var(--ink-soft);line-height:1.45}
+  .item h3{margin:2px 0 0;font-size:17.5px;font-weight:700}
+  .item .desc{margin:6px 0 0;font-size:13.5px;color:var(--ink-soft);line-height:1.45}
   .item .foot{margin-top:auto;padding-top:10px;display:flex;align-items:center;justify-content:space-between}
-  .item .p{font-family:'Bricolage Grotesque',system-ui,sans-serif;font-weight:800;font-size:20px;color:var(--brick)}
+  .item .p{font-family:'Bricolage Grotesque',system-ui,sans-serif;font-weight:800;font-size:23px;color:var(--brick)}
   .item .p small{font-family:'Hanken Grotesk';font-weight:500;font-size:11px;color:var(--ink-soft)}
   .add{
     width:40px;height:40px;border-radius:13px;border:none;background:var(--brick);color:#fff;
@@ -157,7 +157,7 @@
   .add:active{transform:scale(.9)}
 
   /* Franja de confianza */
-  .why{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:22px}
+  .why{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:16px}
   .why div{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px 8px;text-align:center;box-shadow:var(--shadow-sm)}
   .why .e{font-size:24px}
   .why b{display:block;font-size:12.5px;margin-top:6px}
@@ -169,7 +169,7 @@
 
   /* Bloque grande WhatsApp */
   .wa-block{
-    margin-top:22px;background:linear-gradient(135deg,#1FA855,#178a45);border-radius:22px;
+    margin-top:16px;background:linear-gradient(135deg,#1FA855,#178a45);border-radius:22px;
     padding:22px;color:#fff;text-align:center;box-shadow:var(--shadow);
   }
   .wa-block h3{font-family:'Bricolage Grotesque',system-ui,sans-serif;font-weight:800;font-size:23px;letter-spacing:-.5px;margin:0}
@@ -216,7 +216,7 @@
   @media(prefers-reduced-motion:reduce){.music.playing button{animation:none}}
 
   /* Ingredientes */
-  .ingr{margin-top:24px;background:var(--card);border:1px solid var(--line);border-radius:22px;padding:18px 18px 16px;box-shadow:var(--shadow-sm)}
+  .ingr{margin-top:16px;background:var(--card);border:1px solid var(--line);border-radius:22px;padding:18px 18px 16px;box-shadow:var(--shadow-sm)}
   .ingr h2{font-family:'Bricolage Grotesque',system-ui,sans-serif;font-size:22px;font-weight:800;letter-spacing:-.5px;margin:0 0 4px}
   .ingr .sub{color:var(--ink-soft);font-size:12.5px;margin:0 0 15px;line-height:1.4}
   .ingr ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:11px}
@@ -241,7 +241,7 @@
   .wa-block .st58-sm{filter:drop-shadow(0 2px 3px rgba(0,0,0,.35))}
 
   /* Arma tu pedido (interactivo) */
-  .builder{margin-top:24px;background:var(--card);border:1px solid var(--line);border-radius:22px;padding:18px;box-shadow:var(--shadow-sm)}
+  .builder{margin-top:16px;background:var(--card);border:1px solid var(--line);border-radius:22px;padding:18px;box-shadow:var(--shadow-sm)}
   .builder h2{font-family:'Bricolage Grotesque',system-ui,sans-serif;font-size:22px;font-weight:800;letter-spacing:-.5px;margin:0}
   .builder .sub{color:var(--ink-soft);font-size:12.5px;margin:5px 0 0;line-height:1.4}
   .stepper{display:flex;align-items:center;justify-content:center;gap:20px;margin:16px 0 4px}
@@ -267,7 +267,7 @@
   .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
 
   /* Cómo pedir (pasos) · Cómo pagar */
-  .steps,.pay{margin-top:24px;background:var(--card);border:1px solid var(--line);border-radius:22px;padding:18px;box-shadow:var(--shadow-sm)}
+  .steps,.pay{margin-top:16px;background:var(--card);border:1px solid var(--line);border-radius:22px;padding:18px;box-shadow:var(--shadow-sm)}
   .pay{margin-top:16px}
   .steps h2,.pay h2,.faq h2{font-family:'Bricolage Grotesque',system-ui,sans-serif;font-size:22px;font-weight:800;letter-spacing:-.5px;margin:0}
   .steps .sub{color:var(--ink-soft);font-size:12.5px;margin:5px 0 14px}
@@ -283,7 +283,7 @@
   .paynote{color:var(--ink-soft);font-size:12px;margin:13px 0 0;text-align:center;line-height:1.4}
 
   /* FAQ */
-  .faq{margin-top:24px}
+  .faq{margin-top:16px}
   .faq h2{margin:0 0 12px}
   .faq .qa{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:13px 15px;margin-bottom:8px}
   .faq .qa b{display:block;font-size:13.5px}
