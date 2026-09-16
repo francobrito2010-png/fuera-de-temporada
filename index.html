@@ -568,10 +568,10 @@
     var box = document.getElementById("music");
     var btn = document.getElementById("musicBtn");
     var hint = document.getElementById("hint");
-    var started = false, wantOn = true, ac, master, ambientOn = false;
+    var started = false, wantOn = false, ac, master, ambientOn = false;
 
-    try{ if(localStorage.getItem("bgm_off")==="1") wantOn = false; }catch(e){}
-    if(!wantOn){ setBtn(false); hint.style.display="none"; }
+    try{ if(localStorage.getItem("bgm")==="on") wantOn = true; }catch(e){}
+    setBtn(wantOn); hint.style.display="none";  // la música arranca apagada; solo suena si tocan el botón 🎵
 
     function setBtn(on){
       box.classList.toggle("playing", on);
@@ -636,8 +636,8 @@
 
     btn.addEventListener("click", function(ev){
       ev.stopPropagation();
-      if(box.classList.contains("playing")){ wantOn=false; stop(); try{localStorage.setItem("bgm_off","1");}catch(e){} }
-      else { wantOn=true; started=true; hint.style.display="none"; play(); try{localStorage.setItem("bgm_off","0");}catch(e){} }
+      if(box.classList.contains("playing")){ wantOn=false; stop(); try{localStorage.setItem("bgm","off");}catch(e){} }
+      else { wantOn=true; started=true; hint.style.display="none"; play(); try{localStorage.setItem("bgm","on");}catch(e){} }
     });
   })();
 
