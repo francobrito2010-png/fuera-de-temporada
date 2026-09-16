@@ -540,7 +540,7 @@
     </nav>
 
     <!-- Avisos -->
-    <div class="hint" id="hint" hidden>🎵 Música</div>
+    <div class="hint" id="hint">🎵 Música · toca 🔇 arriba para silenciar</div>
     <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
   </div><!-- /app -->
@@ -573,10 +573,10 @@
     var box = document.getElementById("music");
     var btn = document.getElementById("musicBtn");
     var hint = document.getElementById("hint");
-    var started = false, wantOn = false, ac, master, ambientOn = false;
+    var started = false, wantOn = true, ac, master, ambientOn = false;
 
-    try{ if(localStorage.getItem("bgm")==="on") wantOn = true; }catch(e){}
-    setBtn(wantOn); hint.style.display="none";  // la música arranca apagada; solo suena si tocan el botón 🎵
+    try{ if(localStorage.getItem("bgm")==="off") wantOn = false; }catch(e){}
+    setBtn(wantOn); if(!wantOn) hint.style.display="none";  // la música suena al entrar; el cliente la silencia con el botón 🔇
 
     function setBtn(on){
       box.classList.toggle("playing", on);
